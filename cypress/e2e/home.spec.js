@@ -7,6 +7,6 @@ describe('Test de Inicio', () => {
     it('Test link de crear consulta', () => {
         cy.get('ion-button[id="crear-consulta-button"]').click()
         cy.wait(1000)
-        cy.url().should('eq', 'http://localhost:8100/casos-medicos')
+        cy.url().should('eq', 'http://localhost:8100/crear-consulta')
     })
   })
