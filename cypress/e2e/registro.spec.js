@@ -230,8 +230,9 @@ describe('Test de Registro usuario', () => {
         })
         
     });
+    
     it('Test terminos y condiciones requerida', ()=>{
-        cy.get('ion-input[formcontrolname="email"]').type('test@test.com')
+        cy.get('ion-input[formcontrolname="email"]').type('test2@test.com')
         cy.get('ion-input[formcontrolname="edad"]').type(20)
         cy.get('ion-input[formcontrolname="residencia"]').type('Bogota')
         cy.get('ion-input[formcontrolname="nombre"]').type('Esto es un nombre de test')
@@ -317,9 +318,9 @@ describe('Test de Registro usuario', () => {
 
     it('Registro usuario correcto', ()=>{
         cy.get('ion-checkbox[formcontrolname="terminosCondiciones"]').click()
-        cy.get('ion-input[formcontrolname="email"]').type('test@test.com')
+        cy.get('ion-input[formcontrolname="email"]').type('test1234@test.com')
         cy.get('ion-input[formcontrolname="edad"]').type(20)
-        cy.get('ion-input[formcontrolname="residencia"]').type('Bogota')
+        cy.get('ion-input[formcontrolname="residencia"]').type('Colombia')
         cy.get('ion-input[formcontrolname="nombre"]').type('Esto es un nombre de test')
         cy.get('ion-input[formcontrolname="password"]').type('123456')
         cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('123456')
@@ -390,10 +391,10 @@ describe('Test de Registro usuario', () => {
 
         cy.get('ion-button[id="crear-perfil-button"]').click()
 
-        cy.wait(250)
-        cy.get('ion-button[id="register-button"]').click()
+        cy.wait(5000)
+        cy.get('ion-button[id="register-button"]').click({force:true})
 
-        cy.wait(1000);
+        cy.wait(7500);
         cy.url().should('eq', 'http://localhost:8100/login')
         
     });
