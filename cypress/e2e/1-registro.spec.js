@@ -1,3 +1,6 @@
+const mockData = require("../fixtures/mock-data.json")
+const expectedData = require("../fixtures/expect-data.json")
+
 describe('Test de Registro usuario', () => {
     beforeEach(()=>{
         cy.viewport('iphone-x')
@@ -15,8 +18,8 @@ describe('Test de Registro usuario', () => {
     })
     it('Test nombre requerido', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -25,8 +28,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test nombre minimo 4 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="nombre"]').type('123')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.name.short)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -35,8 +38,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test nombre maximo 60 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="nombre"]').type('123456789012345678901234567890123456789012345678901234567890X')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.name.long)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -45,8 +48,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test email requerido', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -55,8 +58,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test email invalido', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="email"]').type('123123')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.password.good)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -66,8 +69,8 @@ describe('Test de Registro usuario', () => {
 
     it('Test edad requerido', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="edad"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="edad"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -76,8 +79,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test edad minima 18', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="edad"]').type(17)
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="edad"]').type(mockData.age.min)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -86,8 +89,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test edad maxima 99', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="edad"]').type(101)
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="edad"]').type(mockData.age.max)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -97,8 +100,8 @@ describe('Test de Registro usuario', () => {
 
     it('Test residencia requerido', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="residencia"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="residencia"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -107,8 +110,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test residencia minimo 4 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="residencia"]').type('123')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="residencia"]').type(mockData.name.short)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -117,8 +120,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test residencia maximo 20 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="residencia"]').type('1234567890-1234567890X')
-            cy.get('ion-input[formcontrolname="email"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="residencia"]').type(mockData.country.bad)
+            cy.get('ion-input[formcontrolname="email"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -128,8 +131,8 @@ describe('Test de Registro usuario', () => {
 
     it('Test contraseña requerida', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="password"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="password"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -138,8 +141,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test contraseña minimo 6 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="password"]').type('12345')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="password"]').type(mockData.password.short)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -148,8 +151,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test contraseña maximo 24 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="password"]').type('1234567890123456789012345')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="password"]').type(mockData.password.long)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -159,8 +162,8 @@ describe('Test de Registro usuario', () => {
 
     it('Test confirmar contraseña requerida', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('{backspace}')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.command.backspace)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -170,8 +173,8 @@ describe('Test de Registro usuario', () => {
 
     it('Test confirmar contraseña minimo 6 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('12345')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.short)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -180,8 +183,8 @@ describe('Test de Registro usuario', () => {
     });
     it('Test confirmar contraseña maximo 24 caracteres', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('1234567890123456789012345')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.long)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -191,9 +194,9 @@ describe('Test de Registro usuario', () => {
 
     it('Test confirmar contraseña igual a contraseña', ()=>{
         cy.get('form').within(() => {
-            cy.get('ion-input[formcontrolname="password"]').type('123456')
-            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('123455')
-            cy.get('ion-input[formcontrolname="nombre"]').type('{backspace}')
+            cy.get('ion-input[formcontrolname="password"]').type(mockData.password.good)
+            cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.bad)
+            cy.get('ion-input[formcontrolname="nombre"]').type(mockData.command.backspace)
         })
         cy.wait(250);
         cy.get('span').then(($divs)=>{
@@ -203,12 +206,12 @@ describe('Test de Registro usuario', () => {
 
     it('Test Perfil dermatologico requerido', ()=>{
         cy.get('ion-checkbox[formcontrolname="terminosCondiciones"]').click()
-        cy.get('ion-input[formcontrolname="email"]').type('test@test.com')
-        cy.get('ion-input[formcontrolname="edad"]').type(20)
-        cy.get('ion-input[formcontrolname="residencia"]').type('Bogota')
-        cy.get('ion-input[formcontrolname="nombre"]').type('Esto es un nombre de test')
-        cy.get('ion-input[formcontrolname="password"]').type('123456')
-        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('123456')
+        cy.get('ion-input[formcontrolname="email"]').type(mockData.password.good)
+        cy.get('ion-input[formcontrolname="edad"]').type(mockData.age.good)
+        cy.get('ion-input[formcontrolname="residencia"]').type(mockData.country.good)
+        cy.get('ion-input[formcontrolname="nombre"]').type(mockData.name.good)
+        cy.get('ion-input[formcontrolname="password"]').type(mockData.password.good)
+        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.good)
         cy.wait(250)
         cy.get('ion-button[id="register-button"]').click()
         cy.wait(250)
@@ -232,12 +235,12 @@ describe('Test de Registro usuario', () => {
     });
     
     it('Test terminos y condiciones requerida', ()=>{
-        cy.get('ion-input[formcontrolname="email"]').type('test2@test.com')
-        cy.get('ion-input[formcontrolname="edad"]').type(20)
-        cy.get('ion-input[formcontrolname="residencia"]').type('Bogota')
-        cy.get('ion-input[formcontrolname="nombre"]').type('Esto es un nombre de test')
-        cy.get('ion-input[formcontrolname="password"]').type('123456')
-        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('123456')
+        cy.get('ion-input[formcontrolname="email"]').type(mockData.email.good)
+        cy.get('ion-input[formcontrolname="edad"]').type(mockData.age.good)
+        cy.get('ion-input[formcontrolname="residencia"]').type(mockData.country.good)
+        cy.get('ion-input[formcontrolname="nombre"]').type(mockData.name.good)
+        cy.get('ion-input[formcontrolname="password"]').type(mockData.password.good)
+        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.good)
         cy.wait(250)
         cy.get('ion-button[id="perfil-dermatologico-button"]').click()
         cy.wait(250)
@@ -318,12 +321,12 @@ describe('Test de Registro usuario', () => {
 
     it('Registro usuario correcto', ()=>{
         cy.get('ion-checkbox[formcontrolname="terminosCondiciones"]').click()
-        cy.get('ion-input[formcontrolname="email"]').type('test1234@test.com')
-        cy.get('ion-input[formcontrolname="edad"]').type(20)
-        cy.get('ion-input[formcontrolname="residencia"]').type('Colombia')
-        cy.get('ion-input[formcontrolname="nombre"]').type('Esto es un nombre de test')
-        cy.get('ion-input[formcontrolname="password"]').type('123456')
-        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type('123456')
+        cy.get('ion-input[formcontrolname="email"]').type(mockData.email.good)
+        cy.get('ion-input[formcontrolname="edad"]').type(mockData.age.good)
+        cy.get('ion-input[formcontrolname="residencia"]').type(mockData.country.good)
+        cy.get('ion-input[formcontrolname="nombre"]').type(mockData.name.good)
+        cy.get('ion-input[formcontrolname="password"]').type(mockData.password.good)
+        cy.get('ion-input[formcontrolname="passwordConfirmation"]').type(mockData.password.good)
         cy.wait(250)
         cy.get('ion-button[id="perfil-dermatologico-button"]').click()
         cy.wait(250)
@@ -395,7 +398,7 @@ describe('Test de Registro usuario', () => {
         cy.get('ion-button[id="register-button"]').click({force:true})
 
         cy.wait(7500);
-        cy.url().should('eq', 'http://localhost:8100/login')
+        cy.url().should('eq', expectedData.page.login)
         
     });
   })
