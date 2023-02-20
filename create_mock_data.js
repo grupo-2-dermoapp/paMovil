@@ -46,7 +46,7 @@ function fillMockData (mockData){
 
     // country
     mockData.country ={}
-    mockData.country.good = faker.address.country()
+    mockData.country.good = country_with_correct_length()
     mockData.country.bad = faker.random.alphaNumeric(21)
 
     writeMockData(mockData)
@@ -60,6 +60,14 @@ function writeMockData(mockData){
         }
     console.log(mockData)
     });
+}
+
+function country_with_correct_length(){
+    let country = faker.address.country()
+    if (country.length > 20){
+        country_with_correct_length()
+    }
+    return country
 }
 
 createMockData();
