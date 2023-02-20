@@ -4,17 +4,21 @@ const expectedData = require("../fixtures/expect-data.json")
 describe('Test de Registro usuario', () => {
     beforeEach(()=>{
         cy.viewport('iphone-x')
-        cy.visit('registro')
+        cy.visit('')
         cy.wait(250)
+        cy.get('#registro').click()
+        cy.wait(500)
     })
     it('Test formulario completo', () => {
         cy.get('ion-button[id="register-button"]').click()
         cy.wait(250)
+        cy.get('.alert-button').click()
+        cy.wait(250)
         cy.get('form').within(() => {
-        cy.get('span').then(($divs)=>{
-            expect($divs.length).to.equal(8)
+            cy.get('span').then(($divs)=>{
+                expect($divs.length).to.equal(8)
+            });
         });
-    });
     })
     it('Test nombre requerido', ()=>{
         cy.get('form').within(() => {
