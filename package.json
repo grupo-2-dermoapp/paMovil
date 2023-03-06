@@ -12,6 +12,6 @@
     "fs": "^0.0.1-security"
   },
   "scripts": {
-    "test":"node create_mock_data.js && cypress run --headless"
+    "test": "node create_mock_data.js && cypress run --headless  --browser chrome"
   }
 }
