@@ -4,6 +4,8 @@ const expectedData = require("../fixtures/expect-data.json")
 describe('Test de consultas',()=>{
 
     beforeEach(()=>{
+        cy.viewport('iphone-x')
+        cy.wait(250);
         cy.visit('')
         cy.wait(250);
         cy.get('form').within(() => {
