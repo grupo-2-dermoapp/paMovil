@@ -6,6 +6,7 @@
     "casosMedicos": "https://grupo-2-dermoapp.github.io/frontend/casos-medicos",
     "registro": "https://grupo-2-dermoapp.github.io/frontend/registro",
     "crearConsulta": "https://grupo-2-dermoapp.github.io/frontend/crear-consulta",
-    "detalleConsulta": "https://grupo-2-dermoapp.github.io/frontend/detalle-consulta"
+    "detalleConsulta": "https://grupo-2-dermoapp.github.io/frontend/detalle-consulta",
+    "consultas": "https://grupo-2-dermoapp.github.io/frontend/consultas"
   }
 }
