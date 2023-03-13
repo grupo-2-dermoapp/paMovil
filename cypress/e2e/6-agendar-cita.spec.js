@@ -35,7 +35,7 @@ describe('Test de agendar cita',()=>{
     it('Agendar cita',()=>{
         cy.get('ion-button[id="button-agendar-cita"]').click()
         cy.wait(1000)
-        cy.url().should('contains', expectedData.page.consultas)
+        cy.url().should('contains', expectedData.page.inicio)
     });
 
 });
